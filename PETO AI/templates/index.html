@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>PETO AI</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/responsive.css') }}" />
+
+</head>
+
+<body>
+  <!-- Updated navbar.html with Services dropdown -->
+
+<!-- Updated navbar with Services dropdown -->
+<div class="hero_area">
+    <!-- header section starts -->
+    <header class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+                <a class="navbar-brand" href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/PETO__1_-removebg-preview.png') }}" alt="Description of Image" width="700px" height="130px">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('chat') }}">About</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('chat') }}">Contact Us</a>
+
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/chatbot">Chat Assistance</a>
+                                <a class="dropdown-item" href="/disease">Disease Detection</a>
+                                <a class="dropdown-item" href="https://dietplannerpets.streamlit.app/">Diet Planner</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 mb-3 mb-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- end header section -->
+
+    <!-- slider section -->
+    <section class="slider_section">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-5 offset-md-1">
+                                <div class="detail-box">
+                                    <div class="number">
+                                        <!-- Add content dynamically -->
+                                    </div>
+                                    <h1>
+                                        PETO AI<br>
+                                        <span>
+                                            Chat Assistance
+                                        </span>
+                                    </h1>
+                                    <p>
+                                        A pet care chat assistant is a virtual helper designed to provide comprehensive information and answer questions related to pet care. It can guide pet owners on various aspects such as feeding, grooming, exercise, and training. Additionally, the assistant can offer basic first aid tips, help recognize symptoms of health issues, and advise when to seek professional veterinary care. For behavioral concerns, the chat assistant can provide strategies to manage common problems, ensuring pets remain happy and well-adjusted.  </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn-1">
+                                            Read More
+                                        </a>
+                                        <a href="" class="btn-2">
+                                            Contact Us
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="{{ url_for('static', filename='images/slider-img.png') }}" alt="Slider Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-5 offset-md-1">
+                                <div class="detail-box">
+                                    <div class="number">
+
+                                    </div>
+                                    <h1>
+                                        PETO AI<br>
+                                        <span>
+                                            Disease Detection
+                                        </span>
+                                    </h1>
+                                    <p>
+                                        Disease detection in pets involves identifying early signs and symptoms of illnesses to ensure timely treatment. Regular checkups with a veterinarian are essential for monitoring your pet's health and keeping up with vaccination schedules to prevent diseases. Pet owners should be vigilant in observing any changes in their pet's appetite, behavior, or appearance, as these could indicate underlying health issues. Diagnostic tools such as blood tests, x-rays, and ultrasounds are often used by veterinarians to diagnose and manage diseases effectively.     </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn-1">
+                                            Read More
+                                        </a>
+                                        <a href="" class="btn-2">
+                                            Contact Us
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="{{ url_for('static', filename='images/slider-img.png') }}" alt="Slider Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-5 offset-md-1">
+                                <div class="detail-box">
+                                    <div class="number">
+
+                                    </div>
+                                    <h1>
+                                       PETO AI <br>
+                                        <span>
+                                          Diet Planner
+                                        </span>
+                                    </h1>
+                                    <p>
+                                       A diet planner for pets is crucial for creating a balanced nutrition plan tailored to the specific needs of your pet. This includes ensuring the diet meets the nutritional requirements based on the pet's age, breed, and health condition. Proper meal portions help maintain a healthy weight, while special diets may be necessary for pets with specific dietary needs or health issues such as allergies or diabetes. Additionally, incorporating healthy treats and necessary supplements into the diet plan supports overall well-being and vitality.    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn-1">
+                                            Read More
+                                        </a>
+                                        <a href="" class="btn-2">
+                                            Contact Us
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="{{ url_for('static', filename='images/slider-img.png') }}" alt="Slider Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-5 offset-md-1">
+                                <div class="detail-box">
+                                    <div class="number">
+
+                                    </div>
+                                    <h1>
+                                        PETO AI <br>
+                                        <span>
+                                            Pet E-commerce
+                                        </span>
+                                    </h1>
+                                    <p>
+                                        Pet e-commerce platforms offer a convenient way for pet owners to purchase a wide range of pet-related products and services. These online stores provide everything from food, toys, and grooming products to accessories and healthcare items like medicines and supplements. Many platforms also offer services such as grooming, training, and veterinary care appointments. The convenience of home delivery and a broad selection of products make pet e-commerce a popular choice for pet owners seeking quality and convenience.    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn-1">
+                                            Read More
+                                        </a>
+                                        <a href="" class="btn-2">
+                                            Contact Us
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img-box">
+                                    <img src="{{ url_for('static', filename='images/slider-img.png') }}" alt="Slider Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end slider section -->
+
+    <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="detail-box">
+        <div class="heading_container">
+          <img src="{{ url_for('static', filename='images/heading-img.png') }}" alt="Slider Image">
+          <h2>
+            About Us
+          </h2>
+        </div>
+        <p>
+          Pet AI is an innovative platform dedicated to enhancing pet care through advanced artificial intelligence technologies. Our mission is to provide pet owners with intelligent solutions that improve the well-being and health of their beloved companions. Using cutting-edge AI algorithms, Pet AI offers personalized recommendations for pet care, including nutrition plans tailored to individual needs and proactive health monitoring. Our virtual assistants are designed to answer questions, offer guidance on pet behavior, and provide timely advice on health concerns. By leveraging AI, Pet AI aims to empower pet owners with the knowledge and tools needed to ensure their pets live long, healthy, and fulfilling lives.
+        </p>
+        <div class="btn-box">
+          <a href="">
+            <span>
+              Read More
+            </span>
+            <img src="{{ url_for('static', filename='images/link-arrow.png') }}" alt="Slider Image">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- animal section -->
+
+  <section class="animal_section layout_padding">
+    <div class="container">
+      <div class="animal_container">
+        <div class="box b1">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/dog.jpg') }}" alt="Slider Image">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Cute Dog
+            </h5>
+            <p>
+             Explore adorable dogs, learn about breeds, care tips, and heartwarming stories celebrating the bond between dogs and humans.
+            </p>
+          </div>
+        </div>
+        <div class="box b2">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/bird.jpg') }}" alt="Slider Image">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Birds
+            </h5>
+            <p>
+             Discover different bird species, their habitats, behaviors, and tips for attracting them to your garden for birdwatching enthusiasts.
+            </p>
+          </div>
+        </div>
+        <div class="box b1">
+          <div class="img-box">
+           <img src="{{ url_for('static', filename='images/fish.jpg') }}" alt="Slider Image">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Fish
+            </h5>
+            <p>
+              Get expert advice on fishkeeping, setting up aquariums, choosing fish species, and maintaining aquatic environments for thriving fish.
+            </p>
+          </div>
+        </div>
+        <div class="box b2">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/cat.jpg') }}" alt="Slider Image">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Cat Bite
+            </h5>
+            <p>
+              Learn about risks, prevention, and handling of cat bites, including insights into cat behavior and health considerations.
+
+
+
+
+
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end animal section -->
+
+  <!-- pet section -->
+
+  <section class="pet_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/pet-img.png') }}" alt="Slider Image">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <img src="{{ url_for('static', filename='images/heading-img.png') }}" alt="Slider Image">
+              <h2>
+                Caring for your pets
+              </h2>
+            </div>
+            <p>
+              Caring for your pets involves ensuring their physical, emotional, and social needs are met. This includes providing proper nutrition tailored to their age and health, regular exercise to keep them active, grooming to maintain hygiene and health, and ensuring they receive necessary veterinary care such as vaccinations and check-ups. Additionally, pets benefit from mental stimulation through play and interaction, and a safe environment that meets their species-specific requirements. Building a strong bond with your pet through love, attention, and understanding their individual preferences and behaviors is also crucial for their overall well-being and happiness.  </p>
+            <div class="btn-box">
+              <a href="">
+                <span>
+                  Read More
+                </span>
+               <img src="{{ url_for('static', filename='images/link-arrow.png') }}" alt="Link Arrow">
+
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end pet section -->
+
+  <!-- us section -->
+
+  <section class="us_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container">
+        <img src="{{ url_for('static', filename='images/heading-img.png') }}" alt="Heading Image">
+        <h2>
+          Why Choose Us
+        </h2>
+        <p>
+         Choose us for our commitment to excellence in pet care. We provide personalized, expert advice on nutrition, grooming, and health care tailored to your pet's specific needs. Our team of dedicated professionals is passionate about animals and committed to ensuring your pet's well-being. With a focus on quality and compassion, we strive to build a trusting relationship with you and your pet, offering comprehensive services and reliable support. Experience peace of mind knowing your pet is in caring hands with us.  </p>
+      </div>
+      <div class="us_container">
+        <div class="box">
+          <div class="img1-box">
+             <img src="{{ url_for('static', filename='images/pet1.png') }}" alt="Pet Image 1">
+          </div>
+          <div class="img2-box">
+            <img src="{{ url_for('static', filename='images/omega.png') }}" alt="Omega Image">
+          </div>
+          <div class="detail-box">
+            <h6>
+              PET NUTRITIONISTS
+            </h6>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img1-box">
+            <img src="{{ url_for('static', filename='images/pet2.png') }}" alt="Pet Image 2">
+          </div>
+          <div class="img2-box">
+            <img src="{{ url_for('static', filename='images/dog.png') }}" alt="Dog Image">
+          </div>
+          <div class="detail-box">
+            <h6>
+              STANDARDS
+            </h6>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img1-box">
+            <img src="{{ url_for('static', filename='images/pet2.png') }}" alt="Pet Image 2">
+          </div>
+          <div class="img2-box">
+            <img src="{{ url_for('static', filename='images/shield.png') }}" alt="Shield Image">
+          </div>
+          <div class="detail-box">
+            <h6>
+              QUALITY & SAFETY
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="">
+          <span>
+            Read More
+          </span>
+          <img src="{{ url_for('static', filename='images/link-arrow.png') }}" alt="Link Arrow">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end us section -->
+
+  <!-- food section -->
+
+  <section class="food_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <img src="{{ url_for('static', filename='images/heading-img.png') }}" alt="Heading Image">
+        <h2>
+          Our Dog Food
+        </h2>
+        <p>
+          Explore our nutritious dog food options crafted with quality ingredients to support your dog's health and vitality. From balanced dry kibble to flavorful wet food, each recipe is tailored to meet their specific dietary needs and life stages. Count on us for wholesome meals that dogs love, ensuring they stay healthy and happy.  </p>
+      </div>
+      <div class="food_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/f1.png') }}" alt="F1 Image">
+          </div>
+          <div class="detail-box">
+            <h6>
+              Basic
+            </h6>
+            <h3>
+              <span>$</span>100
+            </h3>
+            <a href="">
+              Buy Now
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/f2.png') }}" alt="F2 Image">
+          </div>
+          <div class="detail-box">
+            <h6>
+              Medium
+            </h6>
+            <h3>
+              <span>$</span>200
+            </h3>
+            <a href="">
+              Buy Now
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/f3.png') }}" alt="F3 Image">
+          </div>
+          <div class="detail-box">
+            <h6>
+              Standard
+            </h6>
+            <h3>
+              <span>$</span>300
+            </h3>
+            <a href="">
+              Buy Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- end food section -->
+
+  <!-- client section -->
+
+  <section class="client_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <img src="{{ url_for('static', filename='images/heading-img.png') }}" alt="Heading Image">
+        <h2>
+          What Says Our Customer
+        </h2>
+        <p>
+          It is a long established fact that a reader will be distracted by the
+        </p>
+      </div>
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="box">
+              <div class="img-box">
+                <img src="{{ url_for('static', filename='images/client.png') }}" alt="Client Image">
+              </div>
+              <div class="detail-box">
+                <h4>
+                  Jack Mengo
+                </h4>
+                <p>
+                  It is a long established fact that a reader will be distracted by the readable cIt is a long established fact that a reader will be distracted by the readable c
+                </p>
+                <img src="{{ url_for('static', filename='images/quote.png') }}" alt="Quote Image">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/client.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h4>
+                  Jack Mengo
+                </h4>
+                <p>
+                  It is a long established fact that a reader will be distracted by the readable cIt is a long established fact that a reader will be distracted by the readable c
+                </p>
+               <img src="{{ url_for('static', filename='images/quote.png') }}" alt="Quote Image">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="box">
+              <div class="img-box">
+              <img src="{{ url_for('static', filename='images/client.png') }}" alt="Client Image">
+              </div>
+              <div class="detail-box">
+                <h4>
+                  Jack Mengo
+                </h4>
+                <p>
+                  It is a long established fact that a reader will be distracted by the readable cIt is a long established fact that a reader will be distracted by the readable c
+                </p>
+                <img src="{{ url_for('static', filename='images/quote.png') }}" alt="Quote Image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel_btn-box">
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end client section -->
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding-top">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5 offset-md-1">
+          <div class="form_container">
+            <div class="heading_container">
+              <img src="{{ url_for('static', filename='images/heading-img.png') }}" alt="Heading Image">
+              <h2>
+                Request A Call Back
+              </h2>
+              <p>
+                Please fill out the form below to request a callback from our team. We'll get in touch with you at your preferred time to discuss how we can assist you and your pet. Your satisfaction and your pet's well-being are our priorities.  </p>
+            </div>
+            <form action="">
+              <div>
+                <input type="text" placeholder="Full Name " />
+              </div>
+              <div>
+                <input type="text" placeholder="Phone number" />
+              </div>
+              <div>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div>
+                <input type="text" class="message-box" placeholder="Message" />
+              </div>
+              <div class="d-flex ">
+                <button>
+                  SEND
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="map_container">
+           <div class="map-responsive">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.191190067789!2d2.294481415674811!3d48.85837010881859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDM5JzQ3LjYiTiAywrAyMicwNS45Ilc!5e0!3m2!1sen!2sfr!4v1624978190418!5m2!1sen!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end contact section -->
+
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="info_contact">
+            <h5>
+              CONTACT INFO
+            </h5>
+            <div>
+<div>
+    <img src="{{ url_for('static', filename='images/call.png') }}" alt="Call Icon" />
+    <p>+01 1234567890</p>
+</div>
+<div>
+    <img src="{{ url_for('static', filename='images/mail.png') }}" alt="Mail Icon" />
+    <!-- Add your content related to mail here -->
+</div>
+
+              <p>
+                demo@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="info_time">
+            <h5>
+              Opening Hours Shop
+            </h5>
+            <div>
+              <p>
+                Monday to friday
+              </p>
+            </div>
+            <div>
+              <p>
+                07:00 am to 04:00 pm
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="info_social">
+            <h5>
+              social media
+            </h5>
+            <div class="social_container">
+            <div>
+    <a href="#">
+        <img src="{{ url_for('static', filename='images/fb.png') }}" alt="Facebook Icon" />
+    </a>
+</div>
+<div>
+    <a href="#">
+        <img src="{{ url_for('static', filename='images/twitter.png') }}" alt="Twitter Icon" />
+    </a>
+</div>
+<div>
+    <a href="#">
+        <img src="{{ url_for('static', filename='images/linkedin.png') }}" alt="LinkedIn Icon" />
+    </a>
+</div>
+<div>
+    <a href="#">
+        <img src="{{ url_for('static', filename='images/instagram.png') }}" alt="Instagram Icon" />
+    </a>
+</div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="info_form pl-lg-4">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="">
+              <input type="text" placeholder="Enter Your Email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section ">
+    <p>
+      &copy; 2019 All Rights Reserved. Design by
+      <a href="https://html.design/">Free Html Templates</a>
+    </p>
+  </section>
+  <!-- end  footer section -->
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+<script>
+    function openNav() {
+        document.getElementById("myNav").classList.toggle("menu_width");
+        document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style");
+    }
+</script>
+
+</div>
+ </body>
+
+</html>

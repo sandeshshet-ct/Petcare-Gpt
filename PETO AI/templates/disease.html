@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Disease Detection App</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    body, html {
+        height: 100%;
+        overflow: hidden; /* Prevent scrolling */
+        margin: 0;
+        padding: 0;
+    }
+
+    .container-fluid {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .row {
+        height: 100%;
+        margin: 0;
+    }
+
+    .sidebar {
+        background-color: #343a40; /* Black */
+        color: #fff; /* White */
+        padding: 20px;
+        height: 100%;
+        width: 240px; /* Adjusted sidebar width */
+        position: fixed; /* Fixed position to stay on screen */
+        top: 0;
+        left: 0;
+        overflow-y: auto; /* Allow sidebar scrolling if needed */
+    }
+
+    .sidebar h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #ffd700; /* Yellow */
+    }
+
+    .sidebar p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .sidebar ul li {
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    .chat-container {
+        margin-left: 240px; /* Adjust for sidebar width */
+        padding: 20px;
+        height: 100%; /* Set the height to 100% to fill the screen */
+        width: calc(100% - 240px); /* Adjust the width to fill the remaining space */
+    }
+
+    .card {
+        border-radius: 15px !important;
+        background-color: #ffffff; /* White */
+        overflow: hidden;
+        height: 100%; /* Set the height to 100% to fill the container */
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .card-header {
+        border-radius: 15px 15px 0 0 !important;
+        background-color: #007bff; /* Blue */
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    .msg_card_body {
+        padding: 30px;
+        color: #333; /* Text color for dark mode */
+        height: calc(100% - 120px); /* Adjust the height to leave space for the header and footer */
+        overflow-y: auto; /* Add scrolling to the message body */
+    }
+
+    .card-footer {
+        border-radius: 0 0 15px 15px !important;
+        background-color: #f8f9fa; /* Light Gray */
+        padding: 20px;
+        text-align: center;
+        border-top: 1px solid #dee2e6;
+    }
+
+    .send_btn {
+        background-color: #007bff !important; /* Blue */
+        border: 0 !important;
+        color: white !important;
+        cursor: pointer;
+        width: 150px;
+        height: 50px;
+        border-radius: 5px;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }
+
+    .send_btn:hover {
+        background-color: #0056b3 !important; /* Darker Blue */
+    }
+
+    .form-control {
+        border-radius: 5px !important;
+        height: 50px !important;
+        background-color: #f2f4f7 !important; /* Light Gray */
+        border: 1px solid #ced4da !important;
+        font-size: 16px;
+    }
+
+    .form-control:focus {
+        border-color: #007bff !important; /* Blue */
+        box-shadow: none !important;
+    }
+
+    .response {
+        margin-top: 20px;
+     /* Blue */
+        border-radius: 10px;
+        padding: 20px;
+        color: Black; /* Text color for response */
+    }
+
+    .response h2,
+    .response p {
+        color: Black; /* Text color for response */
+    }
+
+    .disclaimer {
+        font-size: 12px;
+        color: #ccc; /* Light Gray */
+        margin-top: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar">
+                <div>
+                    <h3>Pet Care ChatBot</h3>
+                    <p>Welcome to the Pet Care ChatBot. Feel free to ask any questions related to pet care!</p>
+                </div>
+                <hr>
+               <div class="quick-links">
+    <h5>Features</h5>
+    <a href="#"><i class="fas fa-biohazard sidebar-icon"></i> Disease Detection</a>
+    <a href="#"><i class="fas fa-heartbeat sidebar-icon"></i> Symptoms</a>
+    <a href="#"><i class="fas fa-virus sidebar-icon"></i> Causes</a>
+    <a href="#"><i class="fas fa-shield-virus sidebar-icon"></i> Prevention Measures</a>
+    <a href="#"><i class="fas fa-pills sidebar-icon"></i> Recommended Medications</a>
+</div>
+
+            </div>
+
+            <!-- Chat Container -->
+            <div class="col-md-9 chat-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Pet Disease Detection App</h3>
+                    </div>
+                    <div class="msg_card_body">
+                        {% if response %}
+                        <div class="response">
+                            <h2>Generated Response:</h2>
+                            <p>{{ response }}</p>
+                            <div class="disclaimer">
+                                <p><strong>Disclaimer:</strong> The information provided is generated by an AI model and should not substitute professional veterinary advice. Consult with a veterinarian for accurate diagnosis and treatment.</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <form action="/disease" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="input">Input Prompt:</label>
+                                <textarea id="input" name="input" rows="5" class="form-control" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="file">Choose an image:</label>
+                                <input type="file" id="file" name="file" accept="image/*" class="form-control-file" required>
+                            </div>
+                            <!-- Language Selection -->
+                            <div class="form-group">
+                                <label for="lang">Select Language:</label>
+                                <select id="lang" name="lang" class="form-control">
+                                    <option value="en">English</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="fr">French</option>
+                                    <option value="it">Italian</option>
+                                    <option value="hi">Hindi</option>
+                                    <option value="bn">Bengali</option>
+                                    <option value="te">Telugu</option>
+                                    <option value="mr">Marathi</option>
+                                    <option value="ta">Tamil</option>
+                                    <option value="gu">Gujarati</option>
+                                    <option value="kn">Kannada</option>
+                                    <!-- Add more language options as needed -->
+                                </select>
+                            </div>
+                            <button type="submit" class="btn send_btn">Detect Pet Disease</button>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <!-- Footer content here if needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
